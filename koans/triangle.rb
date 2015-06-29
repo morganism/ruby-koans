@@ -13,8 +13,28 @@
 # and
 #   about_triangle_project_2.rb
 #
+#def triangle(a, b, c)
+#  raise TriangleError if [a,b,c].min <= 0
+#  x, y, z = [a,b,c].sort
+#  raise TriangleError if x + y <= z
+#  [:equilateral,:isosceles,:scalene].fetch([a,b,c].uniq.size - 1)
+#end
 def triangle(a, b, c)
-  # WRITE THIS CODE
+	if (a*b*c <= 0)
+		raise TriangleError, "Side length issues"
+	end
+	(x, y, z) = [a, b, c].sort
+	msg = "The smallest 2 side lengths add to more than"
+	msg << " the length of the longest side length"
+	raise TriangleError, $msg if (x + y <= z) 
+
+	if a == b and b == c
+		return :equilateral
+	elsif (a == b) or (b == c) or (a == c)
+		return :isosceles
+	else
+		return :scalene
+	end
 end
 
 # Error class used in part 2.  No need to change this code.
