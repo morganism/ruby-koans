@@ -8,12 +8,12 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 class DiceSet
 
 	def roll(number_of_dice)
-		@@thrown_dice = Array.new
-		number_of_dice.downto(1) { |d| @@thrown_dice << 1 + rand(6) }
+		@thrown_dice = Array.new
+		number_of_dice.downto(1) { |d| @thrown_dice << 1 + rand(6) }
 	end
 
 	def values
-		@@thrown_dice
+		@thrown_dice
 	end
 end
 
